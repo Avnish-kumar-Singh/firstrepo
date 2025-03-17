@@ -52,10 +52,10 @@ class Solution {
          return result;
      }
  
-     public static void main(String[] args) {
-         Solution sol = new Solution();
-         System.out.println(sol.solveNQueens(4));
-     }
+    //  public static void main(String[] args) {
+        //  Solution sol = new Solution();
+        //  System.out.println(sol.solveNQueens(4));
+    //  }
  }
  public class Demo37{
     public static void main(String[] args){
