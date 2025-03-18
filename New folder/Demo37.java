@@ -4,22 +4,22 @@ class Solution {
 
     boolean isSafe(List<String> board, int row, int col, int n) {
         
-         for (int i = 0; i < n; i++) {
+         for (int i = 0; i < n; i++) {  // for row checking
              if (board.get(row).charAt(i) == 'Q') return false;
          }
  
          
-         for (int i = 0; i < n; i++) {
+         for (int i = 0; i < n; i++) {  // for column checking
              if (board.get(i).charAt(col) == 'Q') return false;
          }
  
         
-         for (int i = row, j = col; i >= 0 && j >= 0; i--, j--) {
+         for (int i = row, j = col; i >= 0 && j >= 0; i--, j--) {   // left diagonal checking
              if (board.get(i).charAt(j) == 'Q') return false;
          }
  
          
-         for (int i = row, j = col; i >= 0 && j < n; i--, j++) {
+         for (int i = row, j = col; i >= 0 && j < n; i--, j++) {  // right diagonal checking
              if (board.get(i).charAt(j) == 'Q') return false;
          }
  
@@ -35,13 +35,13 @@ class Solution {
          for (int i = 0; i < n; i++) {
              if (isSafe(board, row, i, n)) {
                 
-                 board.set(row, board.get(row).substring(0, i) + 'Q' + board.get(row).substring(i + 1));
+                 board.set(row, board.get(row).substring(0, i) + 'Q' + board.get(row).substring(i + 1));  // place q at right place
                  
                 
                  abc(board, row + 1, n, result);
                  
                 
-                 board.set(row, board.get(row).substring(0, i) + '.' + board.get(row).substring(i + 1));
+                 board.set(row, board.get(row).substring(0, i) + '.' + board.get(row).substring(i + 1));   // use backtracking to remove q from wrong place and place '.'
              }
          }
      }
